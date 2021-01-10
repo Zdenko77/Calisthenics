@@ -1,0 +1,59 @@
+@media screen and (max-width: 690px){
+    header nav a{
+        font-size: 13px;
+    }
+    header .logo a{
+        background-size: 150px;
+    }
+}
+
+@media screen and (max-width: 623px){
+    header nav a{
+        font-size: 12px;
+    }
+    header .logo a{
+        background-size: 140px;
+    }
+}
+
+@media screen and (max-width: 590px){
+    header nav a{
+        font-size: 11px;
+    }
+    header .logo a{
+        background-size: 130px;
+    }
+}
+@media screen and (max-width: 556px){
+    header nav a{
+        font-size: 10px;
+    }
+    header .logo a{
+        background-size: 120px;
+    }
+}
+@media screen and (max-width: 523px){
+    header nav a{
+        font-size: 9px;
+    }
+    header .logo a{
+        background-size: 110px;
+    }
+}
+
+
+@media screen and (max-width: 320px){
+    header{
+        height: 200px;
+    }
+    header nav a{
+        font-size: 8px;
+    }
+    header .logo a{
+        background-size: 90px;
+        top: -120px;
+    }
+    nav li{
+        margin: 5px;
+    }
+}

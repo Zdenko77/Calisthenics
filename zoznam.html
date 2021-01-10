@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calisthenics</title>
+	<link rel="stylesheet" href="main.css">
+    <style>
+        .zoznam{
+            background: white;
+            color: rgb(85, 31, 31);
+            padding: 20px;
+        }
+        section li{
+            display:flex;
+            margin: 5px;
+        }
+        
+    </style>
+</head>
+
+<body>
+	
+	<header>
+			<nav>
+				<ul>
+					<li><a href="index.html">Úvodná stránka</a></li>
+					<li><a href="page1.html">Stojka na rukách</a></li>
+					<li class="mobile"><a href="page2.html">Stojka na hlave</a></li>
+					<li class="mobile"><a href="page3.html">Musle up</a></li>
+					<li class="logo"><a href="index.html">Calisthenics logo</a></li>
+					<li class="desktop"><a href="page2.html">Stojka na hlave</a></li>
+					<li class="desktop"><a href="page3.html">Musle up</a></li>
+				</ul>
+			</nav>	
+	</header>
+	<section class="zoznam">
+       
+        <h2>Zoznam vecí ktoré chcem trénovať</h2>
+       <br> 
+        
+        <input type="text" id="txt">
+        <button onclick="addLI()">Add</button>
+        <button onclick="editLI()">Edit</button>
+        <button onclick="deleteLI()">Delete</button>
+        
+        <ul id="list">
+            <li>HTML</li> 
+            <li>CSS</li>
+            <li>Javascript</li>
+            <li>PHP</li>
+        </ul>
+        
+        <script>
+            
+            var inputText = document.getElementById("txt"),
+                 items = document.querySelectorAll("#list li"),
+                 tab = [], index;
+         
+             // get the selected li index using array
+             // populate array with li values
+             
+             for(var i = 0; i < items.length; i++){
+                 tab.push(items[i].innerHTML);
+             }
+             
+             // get li index onclick
+             for(var i = 0; i < items.length; i++){
+                 
+                 items[i].onclick = function(){
+                     index = tab.indexOf(this.innerHTML);
+                     console.log(this.innerHTML + " INDEX = " + index);
+                     // set the selected li value into input text
+                     inputText.value = this.innerHTML;
+                 };
+                 
+             }
+            
+            function refreshArray()
+            {
+                // clear array
+                tab.length = 0;
+                items = document.querySelectorAll("#list li");
+                // fill array
+                for(var i = 0; i < items.length; i++){
+                 tab.push(items[i].innerHTML);
+               }
+            }
+            function addLI(){
+                
+                var listNode = document.getElementById("list"),
+                    textNode = document.createTextNode(inputText.value),
+                    liNode = document.createElement("LI");
+                    
+                    liNode.appendChild(textNode);
+                    listNode.appendChild(liNode);
+                    
+                    refreshArray();
+                    
+                    // add event to the new LI
+                    
+                    liNode.onclick = function(){
+                     index = tab.indexOf(liNode.innerHTML);
+                     console.log(liNode.innerHTML + " INDEX = " + index);
+                     // set the selected li value into input text
+                     inputText.value = liNode.innerHTML;
+                 };
+                    
+             }
+             
+             function editLI(){
+                 // edit the selected li using input text
+                 items[index].innerHTML = inputText.value;
+                 refreshArray();
+              }
+              
+              function deleteLI(){
+                  
+                      refreshArray();
+                      if(items.length > 0){
+                          items[index].parentNode.removeChild(items[index]);
+                          inputText.value = "";
+                      }
+              }
+            
+        </script>
+        
+    </body>
+</html>
+
+
+
+
+	</section>
+
+	<footer>
+		Calisthenics • calisthenics@gmail.com • 0915 684 489
+	</footer>
+	<script src="main.js"></script>
+
+</body>
+</html>
